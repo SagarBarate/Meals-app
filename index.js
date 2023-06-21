@@ -8,7 +8,6 @@ const resultHeading= document.getElementsByClassName('result-heading');
 const single_mealEl= document.getElementById('single-meal');
 
 
-
 //search meals
 function searchMeal(e)
 {
@@ -170,12 +169,12 @@ function displayMeals(meals) {
 
   function generateRandomMeals() {
 
-    
+
     const mealCardsContainer = document.getElementById('meal-cards');
     mealCardsContainer.innerHTML = ''; // Clear existing cards
   
     const API_URL = 'https://www.themealdb.com/api/json/v1/1/random.php';
-    const numberOfMeals = 4; // Change this value to generate more or fewer meal cards
+    const numberOfMeals = 6; // Change this value to generate more or fewer meal cards
   
     for (let i = 0; i < numberOfMeals; i++) {
       fetch(API_URL)

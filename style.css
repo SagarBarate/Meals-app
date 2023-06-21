@@ -6,12 +6,16 @@
 }
 
 body{
-    background-color: black;
-    color: #fff;
+    background-color: white;
+    color:black;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin: 0;
 
 
+}
+.bg-body-tertiary{
+    background-color: wheat !important;
+    
 }
 
 .container{
@@ -36,12 +40,29 @@ input,button{
     font-size: 14px;
     padding: 8px 10px;
     margin: 0;
+    background-color: rgb(242, 231, 231);
+    border-color: black;
 
 }
 
 input[type="text"]{
     width: 300px;
 }
+
+#sugg{
+    margin-top: 30px;
+    font-size: 20px;
+    
+}
+
+#disc{
+    margin: 0px;
+    max-width: 90rem;
+    font-size: 15px;
+    line-height: 150%;
+    color: rgb(105, 105, 105);
+}
+
 
 .search-btn{
     cursor: pointer;
@@ -155,9 +176,11 @@ input[type="text"]{
 
 
 #meal-cards {
+    margin-top: 60px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+
   }
   
   .meal-card {
@@ -165,16 +188,19 @@ input[type="text"]{
     border-radius: 8px;
     padding: 10px;
     margin-bottom: 10px;
+    background-color: wheat;
+   
   }
   
   .meal-card img {
     width: 100%;
     border-radius: 4px;
     margin-bottom: 8px;
+    
   }
   
   .meal-card h3 {
-    font-size: 18px;
+    font-size: 15px;
     margin-bottom: 4px;
   }
   
@@ -187,5 +213,7 @@ input[type="text"]{
   overflow: hidden;
   text-overflow: ellipsis;
   }
+
+
   
   
