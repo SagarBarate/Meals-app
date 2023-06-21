@@ -1,0 +1,47 @@
+#container {
+    border : 1px solid red;
+}
+
+
+#meal-cards {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+  }
+  
+  .meal-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: wheat;
+   
+  }
+  
+  .meal-card img {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    
+  }
+  
+  .meal-card h3 {
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+  
+  .meal-card p {
+    margin-bottom: 4px;
+    width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+  
+  

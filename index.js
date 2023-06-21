@@ -3,6 +3,7 @@ const search =document.getElementById('search');
 const submit =document.getElementById('submit');
 const random =document.getElementById('random');
 const mealEl =document.getElementById('meals');
+const favMeal= document.getElementById('favList');
 let favorite= [];
 const resultHeading= document.getElementsByClassName('result-heading');
 const single_mealEl= document.getElementById('single-meal');
@@ -60,28 +61,44 @@ function getMealById(mealID) {
   fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`)
     .then(res => res.json())
     .then(data => {
-      let fav = data.meals[0].strMeal; // defining the favorite meal
-      let favorite = localStorage.getItem('fav') || '[]'; // Retrieve the existing favorites array or initialize it as an empty array if it doesn't exist
+      let fav = data.meals[0];
+      let favorite = JSON.parse(localStorage.getItem('fav') || '[]');
 
-      favorite = JSON.parse(favorite); // Parse the stored string back into an array
-      // if present
-      let indexss = favorite.indexOf(fav);
-      console.log(indexss);
-      if (indexss == -1 ){
-        favorite.push(fav); // Add the new favorite to the array
-        localStorage.setItem('fav', JSON.stringify(favorite)); // Store the updated array in localStorage
+      const index = fav.idMeal;
 
-      }
-      else{
+      const present = checkIdInMeals(favorite, index);
+
+      if(present){
         alert('All ready present in the list');
       }
-
+      else{
+        favorite.push(fav);
+        localStorage.setItem('fav', JSON.stringify(favorite));
+      }
+      
     })
     .catch(error => {
       console.log('Error fetching meal:', error);
     });
 
 }
+
+function checkIdInMeals(meals, idMeal) {
+  for (let meal of meals) {
+    if (meal.idMeal === idMeal) {
+      return true;
+    }
+  }
+  return false;
+}
+
+
+
+
+
+  
+
+
 
 // showing random images of the food
 // window.addEventListener("load", (event) => {
@@ -128,7 +145,6 @@ function getRandomMeals(numberOfMeals) {
     .then(res => res.json())
     .then(data => {
       const meals = data.meals.slice(0, numberOfMeals);
-      console.log(meals);
       displayMeals(meals);
     })
     .catch(error => {
@@ -153,7 +169,6 @@ function displayMeals(meals) {
 }
 
 
-
   // event listener for form submission
   submit.addEventListener('submit', searchMeal);
   
@@ -168,8 +183,6 @@ function displayMeals(meals) {
   
 
   function generateRandomMeals() {
-
-
     const mealCardsContainer = document.getElementById('meal-cards');
     mealCardsContainer.innerHTML = ''; // Clear existing cards
   
@@ -185,6 +198,7 @@ function displayMeals(meals) {
           mealCardsContainer.appendChild(mealCard);
         })
         .catch(error => console.log(error));
+
     }
   }
   
