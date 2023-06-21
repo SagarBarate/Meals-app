@@ -46,6 +46,8 @@ const favMeal = () => {
   // Button for removing the card
   const removeButton = document.createElement('button');
   removeButton.textContent = 'Remove';
+  removeButton.classList.add('remove-button');
+
   removeButton.addEventListener('click', () => {
     removeMealFromLocalStorage(meal);
     card.remove();
@@ -54,7 +56,8 @@ const favMeal = () => {
 
     // Button for opening YouTube link
     const youtubeButton = document.createElement('button');
-    youtubeButton.textContent = 'Open YouTube';
+    youtubeButton.classList.add('youtubeButton');
+    youtubeButton.textContent = 'Youtube';
     youtubeButton.addEventListener('click', () => {
         console.log(meal.strYoutube);
           openYouTubeLink(meal.strYoutube);
@@ -78,3 +81,16 @@ function removeMealFromLocalStorage(meal) {
       localStorage.setItem('fav', JSON.stringify(favoriteMeals));
     }
   }
+
+
+// Function to clear all the available items from the list
+const clearButton = document.getElementById('clear-button');
+clearButton.addEventListener('click', removeMealFromLocalStorage);
+
+function removeMealFromLocalStorage() {
+    const favoriteMeals = [];
+    localStorage.setItem('fav', JSON.stringify(favoriteMeals));
+    
+    const mealCards = document.querySelectorAll('.meal-card');
+    mealCards.forEach((card) => card.remove());
+}
