@@ -1,5 +1,5 @@
 # Meals-app
-
+This Meals-app web application that allows users to search for meals, display search results, view meal details, and add meals to a favorites list. There is also functionality to generate and display random meal cards.
 Deploy Link: 
 
 # Some glimpse from our Website
