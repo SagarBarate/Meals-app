@@ -1,0 +1,11 @@
+{
+  "name": "meals-app",
+  "version": "1.0.0",
+  "description": "Deploy Link:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sagar-Barate",
+  "license": "ISC"
+}

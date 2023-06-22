@@ -9,7 +9,12 @@ const resultHeading= document.getElementsByClassName('result-heading');
 const single_mealEl= document.getElementById('single-meal');
 
 
-//search meals
+//search Meals:
+// The searchMeal function handles the search functionality when the user submits a search term.
+// It retrieves the search term from the input field with the id search.
+// It then performs a fetch request to the MealDB API using the search term.
+// The received data is used to display the search results in the mealEl container.
+// If no results are found, an appropriate message is displayed.
 function searchMeal(e)
 {
   e.preventDefault();
@@ -60,7 +65,12 @@ function searchMeal(e)
 
 }
 
-// fetch meal by id
+// fetch meal by idFetch Meal by ID:
+// The getMealById function fetches a meal by its ID from the MealDB API.
+// It takes the meal ID as a parameter.
+// After fetching the meal, it checks if the meal is already present in the favorite list stored in the browser's localStorage.
+// If the meal is not already present, it adds the meal to the favorite list.
+
 function getMealById(mealID) {
   fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`)
     .then(res => res.json())
@@ -144,6 +154,11 @@ window.addEventListener('load', () => {
   generateRandomMeals();
 });
 
+// Random Meals:
+// The getRandomMeals function fetches a specified number of random meals from the MealDB API.
+// It takes the number of meals as a parameter.
+// After fetching the meals, it calls the displayMeals function to display the fetched meals in the mealsContainer.
+
 function getRandomMeals(numberOfMeals) {
   fetch(`https://www.themealdb.com/api/json/v1/1/random.php`)
     .then(res => res.json())
@@ -155,6 +170,11 @@ function getRandomMeals(numberOfMeals) {
       console.log('Error fetching random meals:', error);
     });
 }
+
+// Display Meals:
+// The displayMeals function takes an array of meals as a parameter.
+// It clears the mealsContainer and then iterates through the meals.
+// For each meal, it creates a new div element with the meal's information (name, image, instructions) and appends it to the mealsContainer.
 
 function displayMeals(meals) {
   const mealsContainer = document.getElementById('meals');
@@ -185,6 +205,10 @@ function displayMeals(meals) {
     }
   });
   
+// Generate Random Meals on Page Load:
+// The code sets up a load event listener to generate random meals when the page is loaded.
+// The generateRandomMeals function is called, which fetches random meals and creates meal cards using the createMealCard function.
+// The number of meals to generate can be adjusted by changing the numberOfMeals variable.
 
   function generateRandomMeals() {
     const mealCardsContainer = document.getElementById('meal-cards');
