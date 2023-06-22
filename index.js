@@ -36,13 +36,17 @@ function searchMeal(e)
         }
         else{
             mealEl.innerHTML = data.meals.map(
+
             meal=> `
             <div class= "meal">
-            <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
+            <img src="${meal.strMealThumb}" alt="${meal.strMeal}" >
             <div class="meal-info" data-mealID="${meal.idMeal}">
+            
             <h3> ${meal.strMeal}<h3>
+            
             </div>
             </div>
+            
             `
             )
             .join("");
